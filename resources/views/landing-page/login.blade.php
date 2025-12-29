@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - SIKSIK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .bg-medical {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Membuat lengkungan di sisi kanan */
+        .left-curve {
+  background-color: #6D92D0;
+  border-top-right-radius: 100% 90%;
+  border-bottom-right-radius: 100% 90%;
+}
+
+
+    </style>
+</head>
+
+<body class="bg-medical min-h-screen flex items-center justify-center overflow-hidden font-sans">
+
+    <div class="w-full h-screen flex flex-col md:flex-row">
+
+    <!-- CURVE DI KIRI -->
+    <div class="hidden md:flex w-2/5 left-curve flex-col justify-center items-center text-white text-center p-10">
+        <h2 class="text-6xl font-bold mb-4 italic">Hello,Welcome!</h2>
+        <p class="text-xl tracking-widest font-semibold mb-8 uppercase">Belum punya akun?</p>
+
+        <a href="/register"
+            class="group flex items-center gap-3 text-2xl font-bold hover:scale-110 transition-transform">
+            <i class="far fa-arrow-alt-circle-right text-3xl"></i>
+            REGISTRASI
+        </a>
+
+        <div class="w-64 h-1 bg-blue-900/50 mt-2 rounded-full shadow-lg"></div>
+    </div>
+
+    <!-- FORM DI KANAN -->
+    <div class="w-full md:w-3/5 flex flex-col justify-center px-12 lg:px-44 relative">
+        <div class="flex items-center gap-3 mb-10 text-white">
+            <i class="fas fa-pills text-4xl"></i>
+            <h1 class="text-5xl font-extrabold tracking-tight">Login</h1>
+        </div>
+
+        <form action="/register" method="POST" class="space-y-6 max-w-md">
+            @csrf
+            <div class="relative">
+                <input type="email" name="email" placeholder="Email..."
+                    class="w-full bg-gray-300/60 placeholder-black text-black py-4 px-6 rounded-full">
+                <i class="fas fa-envelope absolute right-6 top-5 text-black text-xl"></i>
+            </div>
+
+            <div class="relative">
+                <input type="password" name="password" placeholder="Password..."
+                    class="w-full bg-gray-300/60 placeholder-black text-black py-4 px-6 rounded-full">
+                <i class="fas fa-lock absolute right-6 top-5 text-black text-xl"></i>
+            </div>
+        </form>
+
+        <!-- ICON DEKORASI -->
+        <div class="absolute bottom-10 right-24 md:right-32 w-64 h-64 pointer-events-none">
+            <i class="fas fa-plus-square absolute right-0 bottom-6 text-white text-6xl opacity-20"></i>
+            <i class="fas fa-plus-square absolute right-12 bottom-0 text-white text-5xl opacity-40"></i>
+            <i class="fas fa-plus-square absolute right-28 bottom-10 text-white text-4xl opacity-60"></i>
+
+            <i class="fas fa-plus-square absolute right-6 bottom-20 text-white text-7xl opacity-15"></i>
+            <i class="fas fa-plus-square absolute right-32 bottom-28 text-white text-6xl opacity-30"></i>
+            <i class="fas fa-plus-square absolute right-48 bottom-14 text-white text-5xl opacity-50"></i>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

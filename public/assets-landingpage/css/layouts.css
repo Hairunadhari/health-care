@@ -1,0 +1,105 @@
+body{
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+
+
+@media (max-width: 800px) {
+    nav img {
+        height: 50px;
+    }
+    nav {
+        padding-top: 5px;
+    }
+    nav .menu {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        background-color: #33333346; /* Sesuaikan dengan kebutuhan */
+        position: absolute;
+        top: 60px; /* Sesuaikan dengan kebutuhan */
+        right: 0;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    nav .bar {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    nav .menus {
+        width: 100%;
+        display: flex;
+        gap: 5rem;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    nav .menu.show {
+        max-height: 500px; /* Sesuaikan dengan tinggi menu */
+    }
+
+    header{
+        width: 100%;
+        height: 50vh;
+    }
+
+    .header-content p{
+        font-size: 16px;
+    }
+    .header-content h1{
+        font-size: 24px;
+    }
+
+    #content2 .candi,
+    #content2 .atraksi{
+        display: block;
+    }
+
+    #content2 .candi .gambar1,
+    #content2 .candi .gambar2, 
+    #content2 .candi .gambar3{
+        margin-bottom: 1rem;
+        height: 300px;
+        background-position: center;
+    }
+    
+    #content2 .atraksi .gambar1,
+    #content2 .atraksi .gambar2,
+    #content2 .atraksi  .gambar3{
+        height: 250px;
+        margin-bottom: 1rem;
+    }
+
+    #artikel .isian{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    #artikel .item{
+        display: block;
+        padding: 1rem;
+    }
+    #artikel .text{
+        width: 100%;
+    }
+    #galeri .baris1,
+    #galeri .baris2,
+    #galeri .baris3{
+        display: block;
+    }
+
+    #galeri img{
+        width: 100% !important;
+    }
+
+    footer .items{
+        display: block;
+        text-align: center;
+    }
+    
+}
