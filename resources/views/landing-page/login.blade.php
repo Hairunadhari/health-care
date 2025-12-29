@@ -33,7 +33,7 @@
     <!-- CURVE DI KIRI -->
     <div class="hidden md:flex w-2/5 left-curve flex-col justify-center items-center text-white text-center p-10">
         <h2 class="text-6xl font-bold mb-4 italic">Hello,Welcome!</h2>
-        <p class="text-xl tracking-widest font-semibold mb-8 uppercase">Belum punya akun?</p>
+        <p class="text-xl tracking-widest font-semibold mb-8 uppercase">Belum punya akun?.</p>
 
         <a href="/register"
             class="group flex items-center gap-3 text-2xl font-bold hover:scale-110 transition-transform">
