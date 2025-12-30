@@ -9,8 +9,8 @@
     <style>
         /* Background Utama dengan Overlay Biru sesuai Gambar */
         .bg-hero {
-            background: linear-gradient(rgba(45, 85, 155, 0.75), rgba(45, 85, 155, 0.75)), 
-                        url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1920');
+            background: url('/assets-landingpage/img/home.jpeg');
+                        
             background-size: cover;
             background-position: center;
         }
