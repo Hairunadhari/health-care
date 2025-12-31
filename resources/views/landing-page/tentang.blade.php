@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-HEALTH CARE - SIKSIK</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            overflow-x: hidden;
-        }
-
-        .bg-custom-blue {
-            background-color: #6089d3;
-        }
-
-        /* Memastikan container slider memiliki tinggi yang cukup */
-        .slider-container {
-            min-height: calc(100vh - 80px);
-            position: relative;
-        }
-
-    </style>
-</head>
-
-<body class="bg-white min-h-screen flex flex-col" x-data="{ 
+@extends('landing-page.layouts.app')
+@section('content')
+<div class="con" x-data="{ 
         slide: 1, 
         timer: null,
         startSlider() {
@@ -41,52 +14,14 @@
         }
       }" x-init="startSlider()">
 
-   
-        <nav class="bg-custom-blue flex justify-between items-center px-8 py-6 text-white shadow-md z-50 sticky top-0">
-        <div class="flex items-center gap-3">
-            <i class="fas fa-bars text-3xl cursor-pointer"></i>
-            <span class="text-xl font-bold tracking-tighter">SIK<span class="text-[#F58200]">SIK</span></span>
-        </div>
-        <div class="hidden md:flex gap-10 text-sm font-semibold">
-    <a href="/" 
-       class="{{ request()->is('/') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       Beranda
-    </a>
-
-    <a href="/tentang" 
-       class="{{ request()->is('tentang') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       Tentang
-    </a>
-
-    <a href="/service" 
-       class="{{ request()->is('service') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       Service
-    </a>
-
-    <a href="/contact" 
-       class="{{ request()->is('contact') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       Contact
-    </a>
-
-    <a href="/login" 
-       class="{{ request()->is('login') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       Login
-    </a>
-    <a href="/register" 
-       class="{{ request()->is('login') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       register
-    </a>
-</div>
-    </nav>
-
     <div class="slider-container flex-grow">
 
         <div x-show="slide === 1" x-transition.opacity.duration.1000ms class="absolute inset-0 w-full bg-white">
             <main class="container mx-auto mt-12 px-4 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <div class="relative">
-                    <div class="w-full h-[550px] overflow-hidden rounded-sm shadow-xl">
-                        <img src="{{ asset('assets-landingpage/img/trans.jpeg') }}" 
-                            alt="Doctor" class="w-full h-full object-cover">
+                    <div class="w-full h-[700px] overflow-hidden rounded-sm shadow-xl">
+                        <img src="{{ asset('assets-landingpage/img/trans.jpeg') }}" alt="Doctor"
+                            class="w-full h-full object-cover">
                     </div>
                     <div
                         class="absolute bottom-10 -left-4 md:-left-8 bg-custom-blue p-6 text-white max-w-xs shadow-2xl">
@@ -102,7 +37,8 @@
                     </h1>
                     <ol class="space-y-6 text-lg text-gray-800">
                         <li class="flex gap-4"><span class="font-bold">1.</span>
-                            <p>E-Health Care adalah platform digital yang membantu pasien TB Paru tetap patuh minum obat.</p>
+                            <p>E-Health Care adalah platform digital yang membantu pasien TB Paru tetap patuh minum
+                                obat.</p>
                         </li>
                         <li class="flex gap-4"><span class="font-bold">2.</span>
                             <p>Menggunakan sistem pengingat otomatis & edukasi kesehatan.</p>
@@ -135,12 +71,12 @@
                         </div>
                     </div>
                     <div class="mt-8 overflow-hidden">
-                        <img  src="{{ asset('assets-landingpage/img/tentang-kanan.jpeg') }}" 
+                        <img src="{{ asset('assets-landingpage/img/tentang-kanan.jpeg') }}"
                             class="w-full h-65 object-cover">
                     </div>
                 </div>
                 <div class="flex flex-col">
-                    <img  src="{{ asset('assets-landingpage/img/tentang-kiri.jpeg') }}" 
+                    <img src="{{ asset('assets-landingpage/img/tentang-kiri.jpeg') }}"
                         class="h-1/2 w-full object-cover">
                     <div class="bg-custom-blue h-1/2 p-6 md:p-10 text-white flex flex-col justify-center space-y-3">
                         <h3 class="font-bold text-2xl">3. Limited Monitoring</h3>
@@ -156,8 +92,7 @@
             style="display: none;">
             <section class="container mx-auto py-12 px-6 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="flex justify-center">
-                    <img src="{{ asset('assets-landingpage/img/ourdig.jpeg') }}" 
-                        class="h-full object-contain">
+                    <img src="{{ asset('assets-landingpage/img/ourdig.jpeg') }}" class="h-full object-contain">
                 </div>
                 <div class="flex flex-col space-y-8">
                     <h1 class="text-5xl font-extrabold text-black">Our Digital <span
@@ -214,11 +149,8 @@
 
                 </div>
                 <div class="h-[90vh] max-h-screen overflow-hidden">
-    <img 
-      src="{{ asset('assets-landingpage/img/mainfea.jpeg') }}"
-      class="w-full h-full object-cover"
-    >
-</div>
+                    <img src="{{ asset('assets-landingpage/img/mainfea.jpeg') }}" class="w-full h-full object-cover">
+                </div>
 
                 <div class="flex flex-col">
                     <div
@@ -251,6 +183,5 @@
         </button>
     </div>
 
-</body>
-
-</html>
+</div>
+@endsection

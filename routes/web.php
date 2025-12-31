@@ -26,11 +26,9 @@ use App\Http\Controllers\TransactionController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'login']);
-Route::get('/tentang', [TentangController::class, 'index']);
-Route::get('/destinations', [TentangController::class, 'index_user']);
-Route::post('/checkout', [CheckoutController::class, 'index']);
-Route::post('/checkout/submit', [CheckoutController::class, 'submit']);
-Route::get('/checkout-success', [CheckoutController::class, 'sukses']);
+Route::get('/tentang', [HomeController::class, 'tentang']);
+Route::get('/layanan', [HomeController::class, 'layanan']);
+Route::get('/kontak', [HomeController::class, 'kontak']);
 // Route::post('/destinations/search', [TentangController::class, 'search']);
 
 Route::prefix('admin')->group(function () {

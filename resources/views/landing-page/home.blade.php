@@ -1,6 +1,61 @@
-@extends('landing-page.layouts.app')
-@section('content')
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-HEALTH CARE - SIKSIK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Background Utama dengan Overlay Biru sesuai Gambar */
+        .bg-hero {
+            background: url('/assets-landingpage/img/home.jpeg');
+                        
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Font styling agar lebih mirip */
+        body { font-family: 'Arial', sans-serif; }
+    </style>
+</head>
+<body class="bg-hero min-h-screen text-white flex flex-col">
+     <nav class="flex justify-between items-center px-8 py-6">
+        <div class="flex items-center gap-3">
+            <i class="fas fa-bars text-3xl cursor-pointer"></i>
+            <span class="text-xl font-bold tracking-tighter">SIK<span class="text-[#F58200]">SIK</span></span>
+        </div>
+        <div class="hidden md:flex gap-10 text-sm font-semibold">
+    <a href="/" 
+       class="{{ request()->is('/') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
+       Beranda
+    </a>
 
+    <a href="/tentang" 
+       class="{{ request()->is('tentang') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
+       Tentang
+    </a>
+
+    <a href="/layanan" 
+       class="{{ request()->is('layanan') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
+       Layanan
+    </a>
+
+    <a href="/contact" 
+       class="{{ request()->is('contact') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
+       Contact
+    </a>
+
+    <a href="/login" 
+       class="{{ request()->is('login') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
+       Login
+    </a>
+    <a href="/register" 
+       class="{{ request()->is('login') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
+       register
+    </a>
+</div>
+    </nav>
 <main class="flex-grow flex flex-col justify-center px-8 md:px-20 lg:px-32">
     <div class="max-w-4xl">
         <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight flex items-center gap-2">
@@ -37,5 +92,5 @@
 </footer>
 
 
-
-@endsection
+</body>
+</html>

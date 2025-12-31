@@ -1,4 +1,4 @@
- <nav class="flex justify-between items-center px-8 py-6">
+ <nav class="bg-custom-blue flex justify-between items-center px-8 py-6 text-white shadow-md z-50 sticky top-0">
         <div class="flex items-center gap-3">
             <i class="fas fa-bars text-3xl cursor-pointer"></i>
             <span class="text-xl font-bold tracking-tighter">SIK<span class="text-[#F58200]">SIK</span></span>
@@ -14,14 +14,14 @@
        Tentang
     </a>
 
-    <a href="/service" 
-       class="{{ request()->is('service') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       Service
+    <a href="/layanan" 
+       class="{{ request()->is('layanan') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
+       Layanan
     </a>
 
-    <a href="/contact" 
-       class="{{ request()->is('contact') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       Contact
+    <a href="/kontak" 
+       class="{{ request()->is('kontak') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
+       Kontak
     </a>
 
     <a href="/login" 
