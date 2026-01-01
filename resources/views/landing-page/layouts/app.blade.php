@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -32,6 +34,25 @@
    @yield('content')
 
     
-
+@if (session('success'))
+<script>
+    swal({
+        title: "Yeayy!",
+        text: "{{ session('success') }}",
+        icon: "success",
+        button: "OK",
+    });
+</script>
+@endif
+@if (session('error'))
+<script>
+    swal({
+        title: "Oops!",
+        text: "{{ session('error') }}",
+        icon: "error",
+        button: "OK",
+    });
+</script>
+@endif
 </body>
 </html>

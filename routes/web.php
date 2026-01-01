@@ -24,12 +24,21 @@ use App\Http\Controllers\TransactionController;
 //     return view('welcome');
 // });
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/register', [AuthController::class, 'register']);
-Route::get('/login', [AuthController::class, 'login']);
 Route::get('/tentang', [HomeController::class, 'tentang']);
 Route::get('/layanan', [HomeController::class, 'layanan']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
-// Route::post('/destinations/search', [TentangController::class, 'search']);
+Route::post('/frekuensi', [HomeController::class, 'frekuensi']);
+
+Route::get('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'register']);
+Route::post('/register-submit', [AuthController::class, 'register_submit']);
+Route::post('/login-submit', [AuthController::class, 'login_submit']);
+Route::post('/logout', [AuthController::class, 'logout']);
+Route::get('/profil', [AuthController::class, 'profil']);
+Route::get('/profil-saya', [AuthController::class, 'profil_saya']);
+Route::put('/profil-update', [AuthController::class, 'profil_update']);
+Route::get('/ubah-password', [AuthController::class, 'ubah_password_view']);
+Route::put('/update-password', [AuthController::class, 'update_password']);
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard']);

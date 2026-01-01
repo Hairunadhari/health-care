@@ -7,6 +7,8 @@
     <title>Registration - SIKSIK</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         .bg-medical {
             background: url('/assets-landingpage/img/home.jpeg');
@@ -49,20 +51,24 @@
             <i class="fas fa-pills text-4xl"></i>
             <h1 class="text-5xl font-extrabold tracking-tight">Login</h1>
         </div>
-
-        <form action="/register" method="POST" class="space-y-6 max-w-md">
+        <form action="/login-submit" method="POST" class="space-y-6 max-w-md">
             @csrf
             <div class="relative">
-                <input type="email" name="email" placeholder="Email..."
+                <input required type="email" name="email" placeholder="Email..."
                     class="w-full bg-gray-300/60 placeholder-black text-black py-4 px-6 rounded-full">
                 <i class="fas fa-envelope absolute right-6 top-5 text-black text-xl"></i>
             </div>
 
             <div class="relative">
-                <input type="password" name="password" placeholder="Password..."
+                <input required type="password" name="password" placeholder="Password..."
                     class="w-full bg-gray-300/60 placeholder-black text-black py-4 px-6 rounded-full">
                 <i class="fas fa-lock absolute right-6 top-5 text-black text-xl"></i>
             </div>
+            <button type="submit" class="w-full bg-[#6D92D0] hover:bg-[#5b82c2] text-white font-semibold py-4 rounded-full
+           transition duration-200 ease-in-out
+           focus:outline-none focus:ring-2 focus:ring-[#6D92D0] focus:ring-offset-2">
+        Login
+    </button>
         </form>
 
         <!-- ICON DEKORASI -->
@@ -78,6 +84,26 @@
     </div>
 
 </div>
+@if (session('success'))
+<script>
+    swal({
+        title: "Success!",
+        text: "{{ session('success') }}",
+        icon: "success",
+        button: "OK",
+    });
+</script>
+@endif
+@if (session('error'))
+<script>
+    swal({
+        title: "Oops!",
+        text: "{{ session('error') }}",
+        icon: "error",
+        button: "OK",
+    });
+</script>
+@endif
 
 
 </body>

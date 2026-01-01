@@ -17,8 +17,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role')->default('user');
-            $table->bigInteger('no_telp');
+            $table->string('role')->default('pasien');
+            $table->bigInteger('telp');
+            $table->bigInteger('jenis_kelamin');
+            $table->bigInteger('kota');
+            $table->bigInteger('nik');
             $table->rememberToken();
             $table->timestamps();
         });
