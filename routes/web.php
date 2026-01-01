@@ -28,6 +28,8 @@ Route::get('/tentang', [HomeController::class, 'tentang']);
 Route::get('/layanan', [HomeController::class, 'layanan']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
 Route::post('/frekuensi', [HomeController::class, 'frekuensi']);
+Route::post('/submit-perasaan', [HomeController::class, 'submit_perasaan']);
+Route::post('/minum-obat', [HomeController::class, 'minum_obat']);
 
 Route::get('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'register']);

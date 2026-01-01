@@ -31,7 +31,7 @@
                         <div>
                             <input type="text" value="{{ strtoupper(Auth::user()->name ?? '-') }}" name="name"
                                 class="font-semibold bg-transparent border-none p-0"><br>
-                            <input type="number" value="0{{ Auth::user()->telp ?? '089812837' }}" name="telp"
+                            <input type="number" value="0{{ Auth::user()->telp }}" name="telp"
                                 class="font-semibold bg-transparent border-none p-0"><br>
 
                             <input type="email" value="{{ Auth::user()->email ?? '-' }}"

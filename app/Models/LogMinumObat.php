@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JadwalObat extends Model
+class LogMinumObat extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
-    public function logs()
+    public function jadwal()
     {
-        return $this->hasMany(LogMinumObat::class, 'jadwal_obat_id');
+        return $this->belongsTo(JadwalObat::class, 'jadwal_obat_id');
     }
 }

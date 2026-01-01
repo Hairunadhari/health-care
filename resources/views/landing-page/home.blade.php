@@ -41,19 +41,37 @@
        Layanan
     </a>
 
-    <a href="/contact" 
-       class="{{ request()->is('contact') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       Contact
+    <a href="/kontak" 
+       class="{{ request()->is('kontak') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
+       Kontak
     </a>
 
-    <a href="/login" 
+   @if (!Auth::check())
+    <a href="/login"
        class="{{ request()->is('login') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       Login
+        Login / Register
     </a>
-    <a href="/register" 
-       class="{{ request()->is('login') ? 'border-t-4 border-[#F58200]' : 'hover:text-gray-300 transition' }} pt-1">
-       register
-    </a>
+    @else
+     <div x-data="{ open: false }" class="relative">
+    <button @click="open = !open" class="flex items-center gap-2 pt-1">
+        <span>Halo, {{ strtoupper(auth()->user()->name) }}</span>
+        <i class="fas fa-chevron-down text-xs"></i>
+    </button>
+
+    <div x-show="open" @click.away="open = false" 
+         class="absolute right-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-md border py-1 z-50">
+        
+        <a href="/profil" class="block px-4 py-2 hover:bg-gray-100">Profil</a>
+        
+        <form action="/logout" method="POST">
+            @csrf
+            <button type="submit" class="w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100">
+                Logout
+            </button>
+        </form>
+    </div>
+</div>
+@endif
 </div>
     </nav>
 <main class="flex-grow flex flex-col justify-center px-8 md:px-20 lg:px-32">
