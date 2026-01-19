@@ -71,4 +71,9 @@ class HomeController extends Controller
         return back()->with('success', 'Obat berhasil dicatat.');
     }
 
+    public function input_admin()
+    {
+        return view('inputAdmin');
+    }
+
 }

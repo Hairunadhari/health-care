@@ -45,9 +45,21 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/tentang')
-                ->with('success', 'Login berhasil, selamat datang!');
+            $user = Auth::user();
+
+            if ($user->role === 'pasien') {
+                return redirect('/tentang')
+                    ->with('success', 'Login berhasil, selamat datang!');
+            } elseif ($user->role === 'admin') {
+                return redirect('/admin/log-history')
+                    ->with('success', 'Login berhasil, selamat datang admin!');
+            }
+
+            // fallback kalau role tidak dikenali
+            return redirect('/')
+                ->with('success', 'Login berhasil!');
         }
+
 
         // 3. Jika gagal
         return back()->with(

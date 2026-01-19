@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
 
 <div class="section-header">
-    <h1 class="w-100">Destination</h1>
+    <h1 class="w-100">Aktifitas Penggunaan Obat</h1>
     {{-- <h4 class="w-100">Table Destination</h4> --}}
     
 </div>
@@ -15,17 +15,15 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create">
-                        <span class="text">+ Create New</span>
-                    </button>
+                    <h5>Table Data</h5>
                  
-                    <div class="card-header-form">
+                    {{-- <div class="card-header-form">
                       <form id="filter" action="/admin/destinations" method="GET">
                         <div class="input-group">
                           <input type="text" class="form-control" id="search" name="search" value="" placeholder="Search">
                         </div>
                       </form>
-                    </div>
+                    </div> --}}
                   </div>
                 <div class="card-body p-0">
                     <div class="table-responsive">
@@ -33,37 +31,17 @@
                         <tbody>
                             <tr>
                           <th>No</th>
-                          <th>Name</th>
-                          <th>Desc</th>
-                          <th>Img</th>
-                          <th>Harga</th>
-                          <th>No Telp Outlet</th>
-                          <th>Opsi</th>
+                          <th>Nama</th>
+                          <th>Jam Minum Obat</th>
+                          <th>Tanggal Minum Obat</th>
                         </tr>
                         
                         @foreach($datas as $data)
                         <tr>
                             <td>{{ $datas->firstItem() + $loop->index }}</td>
-                            <td >{{$data->nama_kota}}</td>
-                            <td>{{$data->description}}</td>
-                            <td>
-                                <img src="/storage/image/{{$data->image}}"
-                                    style="max-width: 15vw; box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 2px; margin:5px; padding:0.25rem; border:1px solid #dee2e6; ">
-                            </td>
-                            <td>Rp {{number_format($data->harga, 0, ',', '.')}}</td>
-                            <td>0{{$data->no_telp_outlet}}</td>
-                            <td>
-                                <form action="/admin/destinations/delete/{{$data->id}}" method="POST"
-                                    onsubmit="return confirm('yakin mau hapus?');">
-                                    <span><a class="btn btn-warning"
-                                            href="/admin/destinations/edit/{{$data->id}}"><i
-                                                class="far fa-edit"></i>Edit</a></span>
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button class="btn btn-danger" type="submit"><i
-                                            class="far fa-trash-alt"></i> Hapus</button>
-                                </form>
-                            </td>
+                            <td >{{$data->user->name ?? '-'}}</td>
+                            <td>{{$data->jam ?? '-'}}</td>
+                            <td>{{$data->tanggal ?? '-'}}</td>
                         </tr>
                         @endforeach
                       </tbody>

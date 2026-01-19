@@ -16,31 +16,24 @@
 
                 <div class="space-y-8 ml-4">
                     <div class="flex items-center gap-6 group cursor-pointer">
-                        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center text-white text-3xl transition group-hover:bg-[#F97316]">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <span class="text-2xl font-bold text-slate-800">62xxxxxx</span>
-                    </div>
-
-                    <div class="flex items-center gap-6 group cursor-pointer">
                         <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center text-white text-4xl transition group-hover:bg-[#25D366]">
                             <i class="fab fa-whatsapp"></i>
                         </div>
-                        <span class="text-2xl font-bold text-slate-800">08xxxxxx</span>
+                        <span class="text-2xl font-bold text-slate-800">0851-7825-1782</span>
                     </div>
 
                     <div class="flex items-center gap-6 group cursor-pointer">
                         <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center text-white text-4xl transition group-hover:bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500">
                             <i class="fab fa-instagram"></i>
                         </div>
-                        <span class="text-2xl font-bold text-slate-800">health_xx</span>
+                        <span class="text-2xl font-bold text-slate-800">tb.medschedule</span>
                     </div>
 
                     <div class="flex items-center gap-6 group cursor-pointer">
                         <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center text-white text-3xl transition group-hover:bg-blue-400">
                             <i class="fab fa-twitter"></i>
                         </div>
-                        <span class="text-2xl font-bold text-slate-800">health_xx</span>
+                        <span class="text-2xl font-bold text-slate-800">tb.Medschedule</span>
                     </div>
                 </div>
             </div>

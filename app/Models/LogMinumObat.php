@@ -13,4 +13,8 @@ class LogMinumObat extends Model
     {
         return $this->belongsTo(JadwalObat::class, 'jadwal_obat_id');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

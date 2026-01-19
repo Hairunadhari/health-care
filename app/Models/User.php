@@ -39,4 +39,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function log_minum_obat()
+    {
+        return $this->hasMany(LogMinumObat::class, 'user_id');
+    }
 }

@@ -5,21 +5,13 @@
         slide: 1, 
         timer: null,
         totalSlides: 4,
-        startSlider() {
-            this.timer = setInterval(() => {
-                this.next();
-            }, 700000);
-        },
         next() {
             this.slide = this.slide < this.totalSlides ? this.slide + 1 : 1;
         },
         prev() {
             this.slide = this.slide > 1 ? this.slide - 1 : this.totalSlides;
         },
-        resetSlider() {
-            clearInterval(this.timer);
-            this.startSlider();
-        }
+       
     }" x-init="startSlider()">
 
     <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -184,12 +176,6 @@
                             </span>
                         </div>
 
-                        <!-- FOTO -->
-                        <div class="flex items-center gap-4 w-full md:w-1/4 justify-center">
-                            <i class="fas fa-camera text-4xl text-slate-800"></i>
-                            <span class="text-xl font-bold">Sisipkan Gambar</span>
-                        </div>
-
                         <!-- BUTTON -->
                         <div class="w-full md:w-1/5 flex justify-end">
                             @if (!$sudahMinum)
@@ -230,16 +216,6 @@
                     </div>
                     <p class="text-gray-500 text-sm mt-1 ml-10"> {{ \Carbon\Carbon::now()->locale('id')->translatedFormat('l, d F Y') }}</p></p>
                 </div>
-
-                <button
-                    class="bg-green-100 border border-green-200 px-4 py-2 rounded-full flex items-center gap-2 shadow-sm hover:bg-green-200 transition">
-                    <span class="text-xs font-bold">SIMPAN</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-                    </svg>
-                </button>
             </div>
 
             <div
@@ -261,15 +237,11 @@
 
 
                     <div class=" mt-10">
-                        <h3 class="text-4xl font-bold text-black mb-1">Ciprofloxacin 500mg</h3>
-                        <p class="text-4xl font-bold text-gray-300">500mg</p>
+                        <h3 class="text-4xl font-bold text-black mb-1">{{$data[0]->nama ?? '-'}}</h3>
+                        <p class="text-4xl font-bold text-gray-300">{{$data[0]->dosis ?? '-'}}</p>
                     </div>
 
                     <div class="flex gap-4 mt-20">
-                        <button
-                            class="bg-gray-300 hover:bg-gray-400 text-black px-6 py-3 rounded-full flex items-center gap-2 font-semibold transition">
-                            <span class="text-xl">🎥</span> Sisipkan Video
-                        </button>
                         <button
                             class="bg-red-500 hover:bg-red-600 text-white px-10 py-3 rounded-full font-bold shadow-lg transition">
                             TUNDA
@@ -339,14 +311,17 @@
         </div>
     </div>
 
-    <div class="fixed bottom-10 right-10 flex gap-4 z-50">
-        <button @click="prev(); resetSlider()"
-            class="bg-slate-800/80 backdrop-blur-sm text-white w-16 h-16 rounded-full hover:bg-orange-500 transition-all shadow-2xl flex items-center justify-center">
-            <i class="fas fa-chevron-left text-2xl"></i>
+     <div class="fixed inset-y-0 left-4 md:left-8 flex items-center z-50 pointer-events-none">
+        <button @click="slide = slide > 1 ? slide - 1 : 4; resetSlider()"
+            class="bg-slate-800/80 text-white w-12 h-12 md:w-14 md:h-14 rounded-full hover:bg-orange-500 transition-all shadow-2xl flex items-center justify-center pointer-events-auto">
+            <i class="fas fa-chevron-left text-xl"></i>
         </button>
-        <button @click="next(); resetSlider()"
-            class="bg-slate-800/80 backdrop-blur-sm text-white w-16 h-16 rounded-full hover:bg-orange-500 transition-all shadow-2xl flex items-center justify-center">
-            <i class="fas fa-chevron-right text-2xl"></i>
+    </div>
+
+    <div class="fixed inset-y-0 right-4 md:right-8 flex items-center z-50 pointer-events-none">
+        <button @click="slide = slide < 4 ? slide + 1 : 1; resetSlider()"
+            class="bg-slate-800/80 text-white w-12 h-12 md:w-14 md:h-14 rounded-full hover:bg-orange-500 transition-all shadow-2xl flex items-center justify-center pointer-events-auto">
+            <i class="fas fa-chevron-right text-xl"></i>
         </button>
     </div>
 </div>
